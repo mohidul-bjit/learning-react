@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
+import { AuthContext } from '../../App';
 import Product from './product';
 
 
@@ -7,6 +8,7 @@ function ProductList() {
     const [products, setProducts] = useState([])
     const [currPage, setCurrPage] = useState(1)
     const [lastPage, setLastPage] = useState()
+    const {state: authState} = React.useContext(AuthContext)
 
 
     useEffect( () => {
@@ -31,6 +33,7 @@ function ProductList() {
 
     const goNextPage = () => setCurrPage(currPage+1);
     const goPreviousPage = () => setCurrPage(currPage-1)
+    console.log(authState)
 
     return (
         <div className='product__list--container'>
